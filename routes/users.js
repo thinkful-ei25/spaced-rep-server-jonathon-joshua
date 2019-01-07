@@ -8,7 +8,7 @@ const router = express.Router();
 router.post('/', (req, res, next) => {
   console.log('test');
   console.log(req.body);
-  const { fullname, username, password } = req.body;
+  const { firstName, lastName, username, password } = req.body;
   const requiredFields = ['username', 'password'];
   let map = {}; 
   for(let fields in req.body){
@@ -65,7 +65,8 @@ router.post('/', (req, res, next) => {
       const newUser = {
         username,
         password: digest,
-        fullname: fullname.trim()
+        firstName: firstName.trim(),
+        lastName: lastName.trim()
       };
       return User.create(newUser);
     })

@@ -31,8 +31,8 @@ app.use(
   })
 );
 app.use(express.json());
-app.use('/users', usersRouter);
-app.use('/auth', authRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/auth', authRouter);
 
 function runServer(port = PORT) {
   const server = app
