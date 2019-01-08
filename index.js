@@ -12,6 +12,7 @@ const { dbConnect } = require('./db-mongoose');
 
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
+const questionRouter = require('./routes/questions');
 // const {dbConnect} = require('./db-knex');
 
 const app = express();
@@ -33,6 +34,7 @@ app.use(
 app.use(express.json());
 app.use('/api/users', usersRouter);
 app.use('/api/auth', authRouter);
+app.use('/api/question', questionRouter);
 
 function runServer(port = PORT) {
   const server = app
