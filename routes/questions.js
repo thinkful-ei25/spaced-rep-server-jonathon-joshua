@@ -23,7 +23,7 @@ router.post('/', (req, res, next) => {
     err.status = 422;
     return next(err);
   }
-  requiredFields = ['esperantoWord', 'esperantoAnswer'];
+  requiredFields = ['category','esperantoWord', 'esperantoAnswer'];
   const checkIfStringFields = requiredFields.find(field => field in req.body && typeof req.body[field] !== 'string');
 
   if (checkIfStringFields) {
@@ -57,6 +57,23 @@ router.post('/', (req, res, next) => {
         err.status = 400;
       }
       next(err);
+    });
+});
+
+router.get('/', (req, res) => {
+  let value = req.query.category;
+  console.log(req.query);
+  console.log(value);
+  
+  question.find(value === '' ? {} : {'category' : value})
+    .then(questions => {
+      res.json({
+        questions
+      });
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ message: 'Internal server error' });
     });
 });
 
