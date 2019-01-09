@@ -5,19 +5,35 @@ const mongoose = require('mongoose');
 
 // ===== Define UserSchema & UserModel =====
 const schema = new mongoose.Schema({
-  firstName: { type: String, default: '' },
-  lastName: { type: String, default: '' },
   username: { type: String, required: true, unique: true },
-  password: { type: String, required: true }
+  password: { type: String, required: true },
+  animals: [{
+    esperantoWord: { type: String, required: true},
+    esperantoAnswer: { type: String, required: true},
+    score: { type: Number, required: true},
+    next: {type: Number, required: true},
+    index: {type: Number, required: true}
+  }],
+  places: [{
+    esperantoWord: { type: String, required: true},
+    esperantoAnswer: { type: String, required: true},
+    score: { type: Number, required: true},
+    next: {type: Number, required: true},
+    index: {type: Number, required: true}
+  }],
+  head: {
+    animals: { type: Number, default: 0},
+    places: {type: Number, default: 0},
+  }
 });
 
 // Transform output during `res.json(data)`, `console.log(data)` etc.
 schema.set('toJSON', {
   virtuals: true,
   transform: (doc, result) => {
-    delete result._id;
     delete result.__v;
     delete result.password;
+    delete result.id;
   }
 });
 
