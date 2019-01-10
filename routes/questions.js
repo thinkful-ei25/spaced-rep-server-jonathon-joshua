@@ -38,4 +38,18 @@ router.get('/:id', (req, res) => {
     });
 });
 
+router.put('/:id', (req, res) => {
+  let id = req.params.id;
+  let body = req.body;
+  let category = req.query.category;
+  let bodyId = body.id;
+  userQuestion.findById(id)
+    .then(result => {
+      result[category].find(val => val.id === bodyId).score = 1;
+      result.save();
+      console.log(result[category].find(val => val.id === bodyId));
+      res.send('200');
+    });
+});
+
 module.exports = router;
