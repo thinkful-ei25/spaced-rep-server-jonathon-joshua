@@ -22,14 +22,14 @@ router.get('/head/:id', (req, res) => {
 router.get('/:id', (req, res) => {
   let value = req.query.category;
   let id = req.params.id;
-
   console.log(id);
   
   userQuestion.findById(id, {'_id':0})
-    .select(value)
-    .then(questions => {
+    .then(user => {
+      let position = user.head[value];
+      let question = user[value][position];
       res.json({
-        questions
+        question
       });
     })
     .catch(err => {
