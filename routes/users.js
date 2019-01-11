@@ -2,12 +2,8 @@
 
 const express = require('express');
 const User = require('../schema/user');
-<<<<<<< HEAD
-const {placesSeed, animalsSeed, animalsTwoSeed} = require('../seed/databaseSeed');
-=======
 const { placesSeed, animalsSeed, animalsTwoSeed, foodSeed,
   technologySeed, locationSeed, directionsSeed, phrasesSeed } = require('../seed/databaseSeed');
->>>>>>> 1dc94b4e4e6343a90856b6f0d54bb4048fc2cf4f
 
 const router = express.Router();
 
@@ -70,11 +66,7 @@ router.post('/', (req, res, next) => {
         username,
         password: digest,
         animals: animalsSeed,
-<<<<<<< HEAD
-        animalstwo: animalsTwoSeed,
-=======
         animalsTwo: animalsTwoSeed,
->>>>>>> 1dc94b4e4e6343a90856b6f0d54bb4048fc2cf4f
         places: placesSeed,
         food: foodSeed,
         phrases: phrasesSeed,

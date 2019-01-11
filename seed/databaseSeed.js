@@ -68,49 +68,12 @@ const animalsTwoSeed = [{
   'esperantoWord': 'homa',
   'esperantoAnswer': 'human',
   'score': 1,
-  'next': 5,
-  'index': 5
-}
-];
-
-const placesSeed = [{
-  'esperantoWord': 'biblioteko',
-  'esperantoAnswer': 'library',
-  'score': 1,
-  'next': 1,
-  'index': 1
-},
-{
-  'esperantoWord': 'cafe',
-  'esperantoAnswer': 'kafejo',
-  'score': 1,
-  'next': 2,
-  'index': 2
-},
-{
-  'esperantoWord': 'policejon',
-  'esperantoAnswer': 'police station',
-  'score': 1,
-  'next': 3,
-  'index': 3
-},
-{
-  'esperantoWord': 'bushaltejo',
-  'esperantoAnswer': 'bus stop',
-  'score': 1,
-  'next': 4,
-  'index': 4
-},
-{
-  'esperantoWord': 'vendejo',
-  'esperantoAnswer': 'grocery store',
-  'score': 1,
   'next': Number.MAX_SAFE_INTEGER,
   'index': 5
 }
 ];
 
-const animalsTwoSeed = [{
+const placesSeed = [{
   'esperantoWord': 'biblioteko',
   'esperantoAnswer': 'library',
   'score': 1,
@@ -179,7 +142,7 @@ const foodSeed = [{
   'esperantoWord': 'kuketo',
   'esperantoAnswer': 'cookie',
   'score': 1,
-  'next': 5,
+  'next': Number.MAX_SAFE_INTEGER,
   'index': 5
 }
 ];
@@ -216,7 +179,7 @@ const phrasesSeed = [{
   'esperantoWord': 'Ni absolute povas renversi la registaron',
   'esperantoAnswer': 'We can absolutely overthrow the government',
   'score': 1,
-  'next': 5,
+  'next': Number.MAX_SAFE_INTEGER,
   'index': 5
 }
 ];
@@ -253,7 +216,7 @@ const technologySeed = [{
   'esperantoWord': 'tranĉita pano',
   'esperantoAnswer': 'sliced bread',
   'score': 1,
-  'next': 5,
+  'next': Number.MAX_SAFE_INTEGER,
   'index': 5
 }
 ];
@@ -290,7 +253,7 @@ const locationSeed = [{
   'esperantoWord': 'Kanado',
   'esperantoAnswer': 'Canada',
   'score': 1,
-  'next': 5,
+  'next': Number.MAX_SAFE_INTEGER,
   'index': 5
 }
 ];
@@ -327,7 +290,7 @@ const directionsSeed = [{
   'esperantoWord': 'Sude de sudokcidento',
   'esperantoAnswer': 'South by Southwest',
   'score': 1,
-  'next': 5,
+  'next': Number.MAX_SAFE_INTEGER,
   'index': 5
 }
 ];
@@ -335,13 +298,10 @@ const directionsSeed = [{
 module.exports = {
   placesSeed,
   animalsSeed,
-<<<<<<< HEAD
-=======
   animalsTwoSeed,
   foodSeed,
   phrasesSeed,
   technologySeed,
   locationSeed,
   directionsSeed
->>>>>>> 1dc94b4e4e6343a90856b6f0d54bb4048fc2cf4f
 };
