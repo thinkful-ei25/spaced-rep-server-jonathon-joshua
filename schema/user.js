@@ -72,7 +72,6 @@ const schema = new mongoose.Schema({
     technology: {type: Number, default: 0},
     locations: {type: Number, default: 0},
     directions: {type: Number, default: 0}
-
   }
 });
 

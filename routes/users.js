@@ -3,7 +3,7 @@
 const express = require('express');
 const User = require('../schema/user');
 const { placesSeed, animalsSeed, animalsTwoSeed, foodSeed,
-  technologySeed, locationSeed, directionsSeed } = require('../seed/databaseSeed');
+  technologySeed, locationSeed, directionsSeed, phrasesSeed } = require('../seed/databaseSeed');
 
 const router = express.Router();
 
