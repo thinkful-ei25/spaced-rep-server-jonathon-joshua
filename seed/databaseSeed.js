@@ -193,7 +193,7 @@ const technologySeed = [{
 },
 {
   'esperantoWord': 'Poŝtelefono',
-  'esperantoAnswer': 'cell phone?',
+  'esperantoAnswer': 'cell phone',
   'score': 1,
   'next': 2,
   'index': 2
@@ -221,7 +221,7 @@ const technologySeed = [{
 }
 ];
 
-const locationSeed = [{
+const locationsSeed = [{
   'esperantoWord': 'Francio',
   'esperantoAnswer': 'France',
   'score': 1,
@@ -302,6 +302,6 @@ module.exports = {
   foodSeed,
   phrasesSeed,
   technologySeed,
-  locationSeed,
+  locationsSeed,
   directionsSeed
 };

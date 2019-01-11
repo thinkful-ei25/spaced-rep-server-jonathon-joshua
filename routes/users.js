@@ -3,7 +3,7 @@
 const express = require('express');
 const User = require('../schema/user');
 const { placesSeed, animalsSeed, animalsTwoSeed, foodSeed,
-  technologySeed, locationSeed, directionsSeed, phrasesSeed } = require('../seed/databaseSeed');
+  technologySeed, locationsSeed, directionsSeed, phrasesSeed } = require('../seed/databaseSeed');
 
 const router = express.Router();
 
@@ -71,7 +71,7 @@ router.post('/', (req, res, next) => {
         food: foodSeed,
         phrases: phrasesSeed,
         technology: technologySeed,
-        location: locationSeed,
+        locations: locationsSeed,
         directions: directionsSeed
       };
       console.log(newUser.animalsTwo);
