@@ -2,7 +2,7 @@
 
 const express = require('express');
 const User = require('../schema/user');
-const {placesSeed, animalsSeed} = require('../seed/databaseSeed');
+const {placesSeed, animalsSeed, animalsTwoSeed, foodSeed} = require('../seed/databaseSeed');
 
 const router = express.Router();
 
@@ -65,8 +65,12 @@ router.post('/', (req, res, next) => {
         username,
         password: digest,
         animals: animalsSeed,
+        animalsTwo: animalsTwoSeed,
         places: placesSeed,
+        food: foodSeed,
+        phrases: phrasesSeed
       };
+      console.log(newUser.animalsTwo);
       return User.create(newUser);
     })
     .then(result => {
