@@ -22,7 +22,6 @@ router.get('/head/:id', (req, res) => {
 router.get('/:id', (req, res) => {
   let value = req.query.category;
   let id = req.params.id;
-  console.log(id);
   
   userQuestion.findById(id, {'_id':0})
     .then(user => {
@@ -43,13 +42,31 @@ router.put('/:id', (req, res) => {
   let body = req.body;
   let category = req.query.category;
   let bodyId = body.id;
+  let answer = body.answer;
+  let position, temp;
   userQuestion.findById(id)
     .then(result => {
-      result[category].find(val => val.id === bodyId).score = 1;
+      if(answer){
+        result[category].find(val => val.id === bodyId).score *= 2;
+      }
+      else{
+        result[category].find(val => val.id === bodyId).score = 1;
+      }
+      if(result[category].find(val => val.id === bodyId).score >= result[category].length - 1){
+        position = result[category].length - 1;
+      }
+      else{
+        position = result[category].find(val => val.id === bodyId).score;
+      }
+      temp = result[category].find(val => val.id === bodyId).next;
+      result[category].find(val => val.id === bodyId).next = result[category][position].next;
+      result[category][position].next = temp;
+      result.head[category] = temp;
+      console.log(result);
       result.save();
-      console.log(result[category].find(val => val.id === bodyId));
       res.send('200');
-    });
+    })
+    .catch(res.send('400'));
 });
 
 module.exports = router;
