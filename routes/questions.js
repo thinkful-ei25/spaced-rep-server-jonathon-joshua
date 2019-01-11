@@ -20,13 +20,14 @@ router.get('/head/:id', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  let value = req.query.category;
+  let category = req.query.category;
   let id = req.params.id;
   
   userQuestion.findById(id, {'_id':0})
     .then(user => {
-      let position = user.head[value];
-      let question = user[value][position];
+      let position = user.head[category];
+      console.log(user.head[category]);
+      let question = user[category][position];
       res.json({
         question
       });
@@ -41,32 +42,54 @@ router.put('/:id', (req, res) => {
   let id = req.params.id;
   let body = req.body;
   let category = req.query.category;
-  let bodyId = body.id;
   let answer = body.answer;
-  let position, temp;
+  let loopScore;
+  let newPosition, temp;
   userQuestion.findById(id)
     .then(result => {
+      let currentPosition = result.head[category];
+      let printPosition = currentPosition;
+      let string = '';
+      while(printPosition !== Number.MAX_SAFE_INTEGER){
+        result[category][printPosition].next === Number.MAX_SAFE_INTEGER ? string += String.fromCharCode(97+printPosition) : string += String.fromCharCode(97+printPosition) + ' -> ';
+        printPosition = result[category][printPosition].next;
+      }
+      console.log(string);
       if(answer){
-        result[category].find(val => val.id === bodyId).score *= 2;
+        result[category][currentPosition].score *= 2;
       }
       else{
-        result[category].find(val => val.id === bodyId).score = 1;
+        result[category][currentPosition].score = 1;
       }
-      if(result[category].find(val => val.id === bodyId).score >= result[category].length - 1){
-        position = result[category].length - 1;
+      loopScore = result[category][currentPosition].score;
+      newPosition = currentPosition;
+      for(let i = 0; i < loopScore; i++){
+        if(result[category][newPosition].next !== Number.MAX_SAFE_INTEGER){
+          newPosition = result[category][newPosition].next;
+        }
+        else{
+          break;
+        }
       }
-      else{
-        position = result[category].find(val => val.id === bodyId).score;
-      }
-      temp = result[category].find(val => val.id === bodyId).next;
-      result[category].find(val => val.id === bodyId).next = result[category][position].next;
-      result[category][position].next = temp;
-      result.head[category] = temp;
-      console.log(result);
-      result.save();
-      res.send('200');
+      temp = result.head[category];
+      //current head value
+      result.head[category] = result[category][currentPosition].next;
+      console.log(temp + ' Changing to: ' + result.head[category]);
+      //head would equal current Questions next value
+      result[category][currentPosition].next = result[category][newPosition].next;
+
+      result[category][newPosition].next = temp;
+      result.save()
+        .then(
+          res.send('200')
+        )
+        .catch(
+          res.send('400')
+        );
     })
-    .catch(res.send('400'));
+    .catch(
+      res.send('400')
+    );
 });
 
 module.exports = router;

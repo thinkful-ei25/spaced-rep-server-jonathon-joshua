@@ -14,6 +14,13 @@ const schema = new mongoose.Schema({
     next: {type: Number, required: true},
     index: {type: Number, required: true}
   }],
+  animalstwo: [{
+    esperantoWord: { type: String, required: true},
+    esperantoAnswer: { type: String, required: true},
+    score: { type: Number, required: true},
+    next: {type: Number, required: true},
+    index: {type: Number, required: true}
+  }],
   places: [{
     esperantoWord: { type: String, required: true},
     esperantoAnswer: { type: String, required: true},
