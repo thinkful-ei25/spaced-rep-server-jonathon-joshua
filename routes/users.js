@@ -2,25 +2,26 @@
 
 const express = require('express');
 const User = require('../schema/user');
-const {placesSeed, animalsSeed, animalsTwoSeed, foodSeed} = require('../seed/databaseSeed');
+const { placesSeed, animalsSeed, animalsTwoSeed, foodSeed,
+  technologySeed, locationSeed, directionsSeed } = require('../seed/databaseSeed');
 
 const router = express.Router();
 
 router.post('/', (req, res, next) => {
-  const {username, password } = req.body;
+  const { username, password } = req.body;
   const requiredFields = ['username', 'password'];
-  let map = {}; 
-  for(let fields in req.body){
+  let map = {};
+  for (let fields in req.body) {
     map[fields] = 1;
   }
   let errorMessage = undefined;
-  for(let fields in requiredFields){
+  for (let fields in requiredFields) {
     let field = requiredFields[fields];
-    if(map[field] !== 1){
-      errorMessage === undefined ? errorMessage = field : errorMessage += ', '  + field;
+    if (map[field] !== 1) {
+      errorMessage === undefined ? errorMessage = field : errorMessage += ', ' + field;
     }
   }
-  if(errorMessage !== undefined) {
+  if (errorMessage !== undefined) {
     const err = new Error(`fields: '${errorMessage}' can not be empty`);
     err.status = 422;
     return next(err);
@@ -43,22 +44,22 @@ router.post('/', (req, res, next) => {
   }
 
 
-  
-  if (username.length < 2){
+
+  if (username.length < 2) {
     const err = new Error('field: \'username\' must be at least 2 characters long');
     err.status = 422;
     return next(err);
   }
 
   const passwordLength = password.length;
-  if (passwordLength < 8 || passwordLength > 72){
+  if (passwordLength < 8 || passwordLength > 72) {
     const err = new Error('password must be between 8 and 72 characters long');
     err.status = 422;
     return next(err);
   }
 
-  
-    
+
+
   return User.hashPassword(password)
     .then(digest => {
       const newUser = {
@@ -68,7 +69,10 @@ router.post('/', (req, res, next) => {
         animalsTwo: animalsTwoSeed,
         places: placesSeed,
         food: foodSeed,
-        phrases: phrasesSeed
+        phrases: phrasesSeed,
+        technology: technologySeed,
+        location: locationSeed,
+        directions: directionsSeed
       };
       console.log(newUser.animalsTwo);
       return User.create(newUser);

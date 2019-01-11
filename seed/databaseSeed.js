@@ -184,10 +184,124 @@ const phrasesSeed = [{
 }
 ];
 
+const technologySeed = [{
+  'esperantoWord': 'komputilo',
+  'esperantoAnswer': 'computer',
+  'score': 1,
+  'next': 1,
+  'index': 1
+},
+{
+  'esperantoWord': 'Poŝtelefono',
+  'esperantoAnswer': 'cell phone?',
+  'score': 1,
+  'next': 2,
+  'index': 2
+},
+{
+  'esperantoWord': 'tekkomputilo',
+  'esperantoAnswer': 'laptop',
+  'score': 1,
+  'next': 3,
+  'index': 3
+},
+{
+  'esperantoWord': 'ltr',
+  'esperantoAnswer': 'lyft',
+  'score': 1,
+  'next': 4,
+  'index': 4
+},
+{
+  'esperantoWord': 'tranĉita pano',
+  'esperantoAnswer': 'sliced bread',
+  'score': 1,
+  'next': 5,
+  'index': 5
+}
+];
+
+const locationSeed = [{
+  'esperantoWord': 'Francio',
+  'esperantoAnswer': 'France',
+  'score': 1,
+  'next': 1,
+  'index': 1
+},
+{
+  'esperantoWord': 'Usono',
+  'esperantoAnswer': 'United States of America',
+  'score': 1,
+  'next': 2,
+  'index': 2
+},
+{
+  'esperantoWord': 'Aŭstralio',
+  'esperantoAnswer': 'Australia',
+  'score': 1,
+  'next': 3,
+  'index': 3
+},
+{
+  'esperantoWord': 'Kazaĥio',
+  'esperantoAnswer': 'Kazakhstan',
+  'score': 1,
+  'next': 4,
+  'index': 4
+},
+{
+  'esperantoWord': 'Kanado',
+  'esperantoAnswer': 'Canada',
+  'score': 1,
+  'next': 5,
+  'index': 5
+}
+];
+
+const directionsSeed = [{
+  'esperantoWord': 'Norde',
+  'esperantoAnswer': 'North',
+  'score': 1,
+  'next': 1,
+  'index': 1
+},
+{
+  'esperantoWord': 'Oriento',
+  'esperantoAnswer': 'East',
+  'score': 1,
+  'next': 2,
+  'index': 2
+},
+{
+  'esperantoWord': 'Sude',
+  'esperantoAnswer': 'South',
+  'score': 1,
+  'next': 3,
+  'index': 3
+},
+{
+  'esperantoWord': 'Okcidento',
+  'esperantoAnswer': 'West',
+  'score': 1,
+  'next': 4,
+  'index': 4
+},
+{
+  'esperantoWord': 'Sude de sudokcidento',
+  'esperantoAnswer': 'South by Southwest',
+  'score': 1,
+  'next': 5,
+  'index': 5
+}
+];
+
 module.exports = {
   placesSeed,
   animalsSeed,
   animalsTwoSeed,
   foodSeed,
-  phrasesSeed
+  phrasesSeed,
+  technologySeed,
+  locationSeed,
+  directionsSeed
 };
