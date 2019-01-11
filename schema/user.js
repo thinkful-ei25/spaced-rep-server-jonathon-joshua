@@ -28,9 +28,57 @@ const schema = new mongoose.Schema({
     next: {type: Number, required: true},
     index: {type: Number, required: true}
   }],
+  animalsTwo: [{
+    esperantoWord: { type: String, required: true},
+    esperantoAnswer: { type: String, required: true},
+    score: { type: Number, required: true},
+    next: {type: Number, required: true},
+    index: {type: Number, required: true}
+  }],
+  food: [{
+    esperantoWord: { type: String, required: true},
+    esperantoAnswer: { type: String, required: true},
+    score: { type: Number, required: true},
+    next: {type: Number, required: true},
+    index: {type: Number, required: true}
+  }],
+  phrases: [{
+    esperantoWord: { type: String, required: true},
+    esperantoAnswer: { type: String, required: true},
+    score: { type: Number, required: true},
+    next: {type: Number, required: true},
+    index: {type: Number, required: true}
+  }],
+  technology: [{
+    esperantoWord: { type: String, required: true},
+    esperantoAnswer: { type: String, required: true},
+    score: { type: Number, required: true},
+    next: {type: Number, required: true},
+    index: {type: Number, required: true}
+  }],
+  locations: [{
+    esperantoWord: { type: String, required: true},
+    esperantoAnswer: { type: String, required: true},
+    score: { type: Number, required: true},
+    next: {type: Number, required: true},
+    index: {type: Number, required: true}
+  }],
+  directions: [{
+    esperantoWord: { type: String, required: true},
+    esperantoAnswer: { type: String, required: true},
+    score: { type: Number, required: true},
+    next: {type: Number, required: true},
+    index: {type: Number, required: true}
+  }],
   head: {
     animals: { type: Number, default: 0},
     places: {type: Number, default: 0},
+    animalsTwo: {type: Number, default: 0},
+    food: {type: Number, default: 0},
+    phrases: {type: Number, default: 0},
+    technology: {type: Number, default: 0},
+    locations: {type: Number, default: 0},
+    directions: {type: Number, default: 0}
   }
 });
 
