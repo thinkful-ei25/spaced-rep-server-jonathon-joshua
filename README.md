@@ -4,6 +4,8 @@
 - Node
 - Express
 - MongoDB
+- JWT
+- Passport
 
 # Requirements
 - MongoDB
