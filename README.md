@@ -17,4 +17,4 @@
 - Auth
    - Used for logging in.
 - Question
-   -Displays a list of questions based on previous progress through section
+   - Displays a list of questions based on previous progress through section
